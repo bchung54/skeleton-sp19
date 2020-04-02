@@ -36,11 +36,11 @@ public class Body {
     }
 
     public double calcForceExertedByX(Body b) {
-        return calcForceExertedBy(b) * (Math.max(xxPos, b.xxPos) - Math.min(xxPos, b.xxPos)) / calcDistance(b);
+        return calcForceExertedBy(b) * (b.xxPos - xxPos) / calcDistance(b);
     }
 
     public double calcForceExertedByY(Body b) {
-        return calcForceExertedBy(b) * (Math.max(yyPos, b.yyPos) - Math.min(yyPos, b.yyPos)) / calcDistance(b);
+        return calcForceExertedBy(b) * (b.yyPos - yyPos) / calcDistance(b);
     }
 
 
@@ -74,5 +74,9 @@ public class Body {
         this.yyVel += dt * yA;
         this.xxPos += dt * xxVel;
         this.yyPos += dt * yyVel;
+    }
+
+    public void draw() {
+        StdDraw.picture(this.xxPos, this.yyPos, "images/" + this.imgFileName);
     }
 }
