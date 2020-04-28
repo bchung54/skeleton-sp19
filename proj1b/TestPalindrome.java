@@ -1,4 +1,4 @@
-/*import org.junit.Test;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
@@ -15,4 +15,39 @@ public class TestPalindrome {
         }
         assertEquals("persiflage", actual);
     }
-}     Uncomment this class once you've created your Palindrome class. */
+
+    @Test
+    public void testIsPalindrome() {
+
+        assertFalse(palindrome.isPalindrome("cat"));
+        assertFalse(palindrome.isPalindrome("Noon"));
+        assertTrue(palindrome.isPalindrome("racecar"));
+        assertTrue(palindrome.isPalindrome("c"));
+    }
+
+    @Test
+    public void testPalindromeComp1() {
+        OffByOne obo = new OffByOne();
+
+        System.out.println("Testing true cases for CC...");
+        assertTrue(palindrome.isPalindrome("flake", obo));
+        assertTrue(palindrome.isPalindrome("abxbycb", obo));
+        assertTrue(palindrome.isPalindrome("&", obo));
+
+        System.out.println("Testing false cases for CC...");
+        assertFalse(palindrome.isPalindrome("chicken", obo));
+        assertFalse(palindrome.isPalindrome("&/", obo));
+    }
+
+    @Test
+    public void testPalindromeCompN() {
+        OffByN ob5 = new OffByN(5);
+        System.out.println("Testing true cases for CC...");
+        assertTrue(palindrome.isPalindrome("fafk", ob5));
+        assertTrue(palindrome.isPalindrome("acf", ob5));
+        assertTrue(palindrome.isPalindrome("&", ob5));
+
+        System.out.println("Testing false cases for CC...");
+        assertFalse(palindrome.isPalindrome("&f", ob5));
+    }
+}
