@@ -13,8 +13,7 @@ public class StudentArrayDequeLauncher {
             } else {
                 sad1.addFirst(i);
             }
+            sad1.printDeque();
         }
-
-        sad1.printDeque();
     }
 } 
